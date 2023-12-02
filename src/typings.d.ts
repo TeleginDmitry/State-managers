@@ -1,0 +1,6 @@
+declare module '*.interface.ts'
+declare module '*.ts'
+declare module '*.js'
+declare module '*.tsx'
+declare module '*.jsx'
+declare module '*.scss'
