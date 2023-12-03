@@ -1,22 +1,15 @@
 import { observer } from 'mobx-react-lite'
 import styles from './TodoList.module.scss'
 import { TodoItem } from './todoItem/TodoItem'
-import { todosState } from 'store/recoil/atoms/todos.atoms'
-import { useRecoilState } from 'recoil'
-import { TodosService } from 'services/todos.service'
+import { useUnit } from 'effector-react'
+import { fetchTodos, todosStore } from 'store/effector/todos.store'
 import { useEffect } from 'react'
 
 export const TodoList = observer(() => {
-	const [todos, setTodos] = useRecoilState(todosState)
+	const todos = useUnit(todosStore)
 
 	useEffect(() => {
-		async function getTodos() {
-			const todos = await TodosService.getTodos()
-
-			setTodos(todos)
-		}
-
-		getTodos()
+		fetchTodos()
 	}, [])
 
 	return (
