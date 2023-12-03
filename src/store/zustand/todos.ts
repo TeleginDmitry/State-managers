@@ -3,12 +3,9 @@ import { create } from 'zustand'
 
 export const todosStore = create<ZustandTodos>(set => ({
 	todos: [],
-	addTodo: description =>
+	addTodo: title =>
 		set(state => ({
-			todos: [
-				...state.todos,
-				{ id: Date.now(), description, completed: false },
-			],
+			todos: [...state.todos, { id: Date.now(), title, completed: false }],
 		})),
 	completeTodo(id) {
 		set(state => ({
