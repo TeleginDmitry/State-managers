@@ -17,7 +17,7 @@ const TodosSlice = createSlice({
 			const todo: TodoType = {
 				completed: false,
 				id: Math.random(),
-				description: payload,
+				title: payload,
 			}
 
 			state.todos.push(todo)

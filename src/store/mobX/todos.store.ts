@@ -15,10 +15,10 @@ export class TodosStore {
 		makeAutoObservable(this)
 	}
 
-	addTodo = (description: string) => {
+	addTodo = (title: string) => {
 		this.todos.push({
 			id: Math.random(),
-			description,
+			title,
 			completed: false,
 		})
 	}
